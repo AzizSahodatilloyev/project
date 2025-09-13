@@ -1,0 +1,36 @@
+class AppImages {
+  AppImages._();
+  static const String appLogo = 'assets/images/logo.png';
+  static const String onboarding1 = 'assets/images/Frame.png';
+  static const String onboarding2 = 'assets/images/Frame-2.png';
+  static const String onboarding3 = 'assets/images/Frame-3.png';
+  static const String congratulations = 'assets/images/Group.png';
+  static const String google = 'assets/images/Google - Original.png';
+  static const String apple = 'assets/images/Apple - Original.png';
+  static const String offer = 'assets/images/offer-1.png';
+  static const String top1 = 'assets/images/top-1.png';
+  static const String top2 = 'assets/images/top-2.png';
+  static const String top3 = 'assets/images/top-3.jpg';
+  static const String vendor1 = 'assets/images/vendor-1.png';
+  static const String vendor2 = 'assets/images/vendor-2.png';
+  static const String vendor3 = 'assets/images/vendor-3.png';
+  static const String vendor4 = 'assets/images/vendor-4.png';
+  static const String vendor5 = 'assets/images/vendor-5.png';
+  static const String vendor6 = 'assets/images/vendor-6.png';
+  static const String vendor7 = 'assets/images/vendor-7.png';
+  static const String vendor8 = 'assets/images/vendor-8.png';
+  static const String vendor9 = 'assets/images/vendor-9.png';
+  static const String author1 = 'assets/images/author-1.png';
+  static const String author2 = 'assets/images/author-2.png';
+  static const String author3 = 'assets/images/author-3.png';
+  static const String author4 = 'assets/images/author-4.png';
+  static const String author5 = 'assets/images/author-5.png';
+  static const String author6 = 'assets/images/author-6.png';
+  static const String author7 = 'assets/images/author-7.png';
+  static const String product1 = 'assets/images/product-1.png';
+  static const String product2 = 'assets/images/product-2.png';
+  static const String product3 = 'assets/images/product-3.png';
+  static const String product4 = 'assets/images/product-4.png';
+  static const String product5 = 'assets/images/product-5.png';
+  static const String product6 = 'assets/images/product-6.png';
+}

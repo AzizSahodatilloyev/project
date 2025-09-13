@@ -1,0 +1,208 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:project/core/assets/app_icons.dart';
+import 'package:project/core/theme/app_colors.dart';
+
+class ResetPasswordFormfield extends StatelessWidget {
+  ResetPasswordFormfield({super.key, required this.emailController});
+  final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+  final TextEditingController emailController;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: emailController,
+      onTapOutside: (event) => FocusScope.of(context).unfocus(),
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide.none,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide(
+            color: Color(AppColors.primaryColor),
+            width: 1,
+          ),
+        ),
+        fillColor: Colors.grey.shade50,
+        filled: true,
+        hintText: 'Your email',
+        hintStyle: TextStyle(
+          color: Colors.grey.shade400,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please enter your email';
+        }
+        if (!emailRegex.hasMatch(value)) {
+          return 'Please enter a valid email';
+        }
+        return null;
+      },
+    );
+  }
+}
+
+class NewResetPassword1 extends StatefulWidget {
+  const NewResetPassword1({super.key});
+
+  @override
+  State<NewResetPassword1> createState() => _NewResetPassword1State();
+}
+
+class _NewResetPassword1State extends State<NewResetPassword1> {
+  final passwordRegex = RegExp(
+    r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$&*~]).{8,}$',
+  );
+
+  final TextEditingController _passwordController = TextEditingController();
+
+  bool _obsecurePassword = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: _passwordController,
+      onTapOutside: (event) => FocusScope.of(context).unfocus(),
+      obscureText: _obsecurePassword,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide.none,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide(
+            color: Color(AppColors.primaryColor),
+            width: 1,
+          ),
+        ),
+        fillColor: Colors.grey.shade50,
+        filled: true,
+        hintText: 'Your password',
+        hintStyle: TextStyle(
+          color: Colors.grey.shade400,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+        ),
+        suffixIcon: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _obsecurePassword = !_obsecurePassword;
+              });
+            },
+            child: _obsecurePassword
+                ? SvgPicture.asset(
+                    AppIcons.passwordOutline,
+                    width: 24,
+                    height: 24,
+                  )
+                : SvgPicture.asset(
+                    AppIcons.passwordOutline,
+                    width: 24,
+                    height: 24,
+                  ),
+          ),
+        ),
+        suffixIconConstraints: BoxConstraints(minHeight: 12, minWidth: 12),
+      ),
+      validator: (value) => (value == null || value.isEmpty)
+          ? 'Please enter your password'
+          : (!passwordRegex.hasMatch(value))
+          ? 'Password must be at least 8 characters, \ninclude an uppercase letter, \nnumber and symbol'
+          : null,
+    );
+  }
+}
+
+class NewResetPassword2 extends StatefulWidget {
+  const NewResetPassword2({super.key});
+
+  @override
+  State<NewResetPassword2> createState() => _NewResetPassword2State();
+}
+
+class _NewResetPassword2State extends State<NewResetPassword2> {
+  final passwordRegex = RegExp(
+    r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$&*~]).{8,}$',
+  );
+
+  final TextEditingController _passwordController = TextEditingController();
+
+  bool _obsecurePassword = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      controller: _passwordController,
+      onTapOutside: (event) => FocusScope.of(context).unfocus(),
+      obscureText: _obsecurePassword,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide.none,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          borderSide: BorderSide(
+            color: Color(AppColors.primaryColor),
+            width: 1,
+          ),
+        ),
+        fillColor: Colors.grey.shade50,
+        filled: true,
+        hintText: 'Your password',
+        hintStyle: TextStyle(
+          color: Colors.grey.shade400,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+        ),
+        suffixIcon: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                _obsecurePassword = !_obsecurePassword;
+              });
+            },
+            child: _obsecurePassword
+                ? SvgPicture.asset(
+                    AppIcons.passwordOutline,
+                    width: 24,
+                    height: 24,
+                  )
+                : SvgPicture.asset(
+                    AppIcons.passwordOutline,
+                    width: 24,
+                    height: 24,
+                  ),
+          ),
+        ),
+        suffixIconConstraints: BoxConstraints(minHeight: 12, minWidth: 12),
+      ),
+      validator: (value) => (value == null || value.isEmpty)
+          ? 'Please enter your password'
+          : (!passwordRegex.hasMatch(value))
+          ? 'Password must be at least 8 characters, \ninclude an uppercase letter, \nnumber and symbol'
+          : null,
+    );
+  }
+}
