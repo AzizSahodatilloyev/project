@@ -48,7 +48,7 @@ class _StartPageState extends State<StartPage> {
           child: Text(
             'Skip',
             style: TextStyle(
-              color: Color(AppColors.primaryColor),
+              color: AppColors.primaryColor,
               fontSize: 14,
               fontWeight: FontWeight.w500,
             ),
@@ -105,7 +105,7 @@ class _StartPageState extends State<StartPage> {
               controller: _controller,
               count: _pages.length,
               effect: ScaleEffect(
-                activeDotColor: Color(AppColors.primaryColor),
+                activeDotColor: AppColors.primaryColor,
                 radius: 24,
                 dotWidth: 8,
                 dotHeight: 8,
@@ -136,11 +136,16 @@ class _StartPageState extends State<StartPage> {
                 SplashButton(
                   color: Color(0xFFFAF9FD),
                   title: 'Sign In',
-                  titleColor: Color(AppColors.primaryColor),
+                  titleColor: AppColors.primaryColor,
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginPage()),
+                      MaterialPageRoute(
+                        builder: (context) => BlocProvider(
+                          create: (context) => AuthCubit(),
+                          child: LoginPage(),
+                        ),
+                      ),
                     );
                   },
                 ),

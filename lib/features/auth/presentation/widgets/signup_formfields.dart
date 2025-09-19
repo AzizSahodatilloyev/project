@@ -21,10 +21,7 @@ class SignupNameField extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
-          borderSide: BorderSide(
-            color: Color(AppColors.primaryColor),
-            width: 1,
-          ),
+          borderSide: BorderSide(color: AppColors.primaryColor, width: 1),
         ),
         fillColor: Colors.grey.shade50,
         filled: true,
@@ -63,10 +60,7 @@ class SignupEmailField extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
-          borderSide: BorderSide(
-            color: Color(AppColors.primaryColor),
-            width: 1,
-          ),
+          borderSide: BorderSide(color: AppColors.primaryColor, width: 1),
         ),
         fillColor: Colors.grey.shade50,
         filled: true,
@@ -85,6 +79,3 @@ class SignupEmailField extends StatelessWidget {
     );
   }
 }
-
-
-

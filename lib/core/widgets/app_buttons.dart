@@ -9,7 +9,7 @@ class SplashButton extends StatelessWidget {
 
   const SplashButton({
     super.key,
-    this.color = const Color(AppColors.primaryColor),
+    this.color = AppColors.primaryColor,
     this.title = 'Get Started',
     this.titleColor = Colors.white,
     required this.onPressed,
@@ -59,7 +59,7 @@ class AuthButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         alignment: Alignment.center,
-        backgroundColor: Color(AppColors.primaryColor),
+        backgroundColor: AppColors.primaryColor,
         elevation: 0,
         maximumSize: Size(500, 500),
         minimumSize: Size(10, 10),
@@ -93,7 +93,7 @@ class HomeButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         padding: EdgeInsets.all(0),
-        backgroundColor: Color(AppColors.primaryColor),
+        backgroundColor: AppColors.primaryColor,
         elevation: 0,
 
         shape: RoundedRectangleBorder(

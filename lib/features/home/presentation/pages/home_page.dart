@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:project/core/assets/app_icons.dart';
 import 'package:project/core/assets/app_images.dart';
 import 'package:project/core/theme/app_colors.dart';
 import 'package:project/core/widgets/app_buttons.dart';
+import 'package:project/features/home/presentation/cubit/home_cubit.dart';
 import 'package:project/features/home/presentation/pages/author_list_page.dart';
 import 'package:project/features/home/presentation/pages/vendors_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -51,6 +53,12 @@ class _HomePageState extends State<HomePage> {
     {"name": "Tess Gunty", "role": "Novelist", 'image': AppImages.author2},
     {"name": "Richard Per", "role": "Writer", 'image': AppImages.author3},
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    context.read<HomeCubit>().getBooks();  
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                       controller: _controller,
                       count: _offerPages.length,
                       effect: ScaleEffect(
-                        activeDotColor: Color(AppColors.primaryColor),
+                        activeDotColor: AppColors.primaryColor,
                         dotWidth: 4,
                         dotHeight: 4,
                         spacing: 8,
@@ -243,7 +251,7 @@ class _HomePageState extends State<HomePage> {
                                   child: Text(
                                     book['price']!,
                                     style: TextStyle(
-                                      color: Color(AppColors.primaryColor),
+                                      color: AppColors.primaryColor,
                                       fontSize: 12,
                                       fontWeight: FontWeight.w700,
                                     ),

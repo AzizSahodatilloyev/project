@@ -9,7 +9,6 @@ import 'package:project/core/widgets/custom_keyboard.dart';
 import 'package:project/features/auth/cubit/auth_cubit.dart';
 import 'package:project/features/auth/cubit/auth_state.dart';
 import 'package:project/features/auth/presentation/pages/new_passsword_page.dart';
-import 'package:project/features/auth/presentation/pages/reset_password_page.dart';
 
 class ResetVerificationPage extends StatefulWidget {
   final TextEditingController verifiedEmail;
@@ -59,11 +58,7 @@ class _VerificationPageState extends State<ResetVerificationPage> {
         leading: IconButton(
           onPressed: () {
             setState(() {
-              Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (context) => ResetPasswordPage()),
-                (route) => false,
-              );
+              Navigator.pop(context);
             });
           },
           icon: SvgPicture.asset(AppIcons.arrowLeftOutline),
@@ -133,12 +128,16 @@ class _VerificationPageState extends State<ResetVerificationPage> {
                           context,
                         ).showSnackBar(SnackBar(content: Text(state.message)));
 
-                        Navigator.pushAndRemoveUntil(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => NewPassswordPage(),
+                            builder: (context) => BlocProvider(
+                              create: (context) => AuthCubit(),
+                              child: NewPassswordPage(
+                                resetToken: state.message,
+                              ),
+                            ),
                           ),
-                          (route) => false,
                         );
                       }
                     }
@@ -161,7 +160,7 @@ class _VerificationPageState extends State<ResetVerificationPage> {
                           Container(
                             width: 2,
                             height: 25,
-                            color: Color(AppColors.primaryColor),
+                            color: AppColors.primaryColor,
                           ),
                         ],
                       ),
@@ -192,7 +191,7 @@ class _VerificationPageState extends State<ResetVerificationPage> {
                           color: Colors.grey.shade50,
                           borderRadius: BorderRadius.all(Radius.circular(8)),
                           border: Border.all(
-                            color: Color(AppColors.primaryColor),
+                            color: AppColors.primaryColor,
                             width: 1,
                           ),
                         ),
@@ -216,7 +215,7 @@ class _VerificationPageState extends State<ResetVerificationPage> {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
-                          color: Color(AppColors.primaryColor),
+                          color: AppColors.primaryColor,
                           decoration: TextDecoration.underline,
                         ),
                         recognizer: TapGestureRecognizer()..onTap = () {},

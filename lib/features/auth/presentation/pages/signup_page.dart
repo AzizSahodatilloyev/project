@@ -149,7 +149,7 @@ class _SignupPageState extends State<SignupPage> {
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(Radius.circular(8)),
                             borderSide: BorderSide(
-                              color: Color(AppColors.primaryColor),
+                              color: AppColors.primaryColor,
                               width: 1,
                             ),
                           ),
@@ -264,7 +264,7 @@ class _SignupPageState extends State<SignupPage> {
                         TextSpan(
                           text: 'Sign In',
                           style: TextStyle(
-                            color: Color(AppColors.primaryColor),
+                            color: AppColors.primaryColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             decoration: TextDecoration.underline,
@@ -274,7 +274,10 @@ class _SignupPageState extends State<SignupPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => LoginPage(),
+                                  builder: (context) => BlocProvider(
+                                    create: (context) => AuthCubit(),
+                                    child: LoginPage(),
+                                  ),
                                 ),
                               );
                             },
@@ -301,7 +304,7 @@ class _SignupPageState extends State<SignupPage> {
                         TextSpan(
                           text: 'Terms and Data Policy.',
                           style: TextStyle(
-                            color: Color(AppColors.primaryColor),
+                            color: AppColors.primaryColor,
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             decoration: TextDecoration.underline,

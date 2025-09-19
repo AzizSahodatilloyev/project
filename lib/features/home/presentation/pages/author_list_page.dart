@@ -100,7 +100,7 @@ class _AuthorListPageState extends State<AuthorListPage> {
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
-                      color: Color(AppColors.primaryColor),
+                      color: AppColors.primaryColor,
                     ),
                   ),
                 ],
@@ -196,7 +196,7 @@ Widget _tabItem(String text, bool isActive) {
             margin: const EdgeInsets.only(top: 4),
             height: 2,
             width: 24,
-            color: Color(AppColors.primaryColor),
+            color: AppColors.primaryColor,
           ),
       ],
     ),

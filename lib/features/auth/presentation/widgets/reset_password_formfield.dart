@@ -24,10 +24,7 @@ class ResetPasswordFormfield extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
-          borderSide: BorderSide(
-            color: Color(AppColors.primaryColor),
-            width: 1,
-          ),
+          borderSide: BorderSide(color: AppColors.primaryColor, width: 1),
         ),
         fillColor: Colors.grey.shade50,
         filled: true,
@@ -52,7 +49,9 @@ class ResetPasswordFormfield extends StatelessWidget {
 }
 
 class NewResetPassword1 extends StatefulWidget {
-  const NewResetPassword1({super.key});
+  final TextEditingController passwordController;
+
+  const NewResetPassword1({super.key, required this.passwordController});
 
   @override
   State<NewResetPassword1> createState() => _NewResetPassword1State();
@@ -62,15 +61,12 @@ class _NewResetPassword1State extends State<NewResetPassword1> {
   final passwordRegex = RegExp(
     r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$&*~]).{8,}$',
   );
-
-  final TextEditingController _passwordController = TextEditingController();
-
   bool _obsecurePassword = true;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: _passwordController,
+      controller: widget.passwordController,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       obscureText: _obsecurePassword,
       decoration: InputDecoration(
@@ -84,10 +80,7 @@ class _NewResetPassword1State extends State<NewResetPassword1> {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
-          borderSide: BorderSide(
-            color: Color(AppColors.primaryColor),
-            width: 1,
-          ),
+          borderSide: BorderSide(color: AppColors.primaryColor, width: 1),
         ),
         fillColor: Colors.grey.shade50,
         filled: true,
@@ -130,7 +123,9 @@ class _NewResetPassword1State extends State<NewResetPassword1> {
 }
 
 class NewResetPassword2 extends StatefulWidget {
-  const NewResetPassword2({super.key});
+  final TextEditingController confirmPasswordController;
+
+  NewResetPassword2({super.key, required this.confirmPasswordController});
 
   @override
   State<NewResetPassword2> createState() => _NewResetPassword2State();
@@ -141,14 +136,12 @@ class _NewResetPassword2State extends State<NewResetPassword2> {
     r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#\$&*~]).{8,}$',
   );
 
-  final TextEditingController _passwordController = TextEditingController();
-
   bool _obsecurePassword = true;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: _passwordController,
+      controller: widget.confirmPasswordController,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       obscureText: _obsecurePassword,
       decoration: InputDecoration(
@@ -162,10 +155,7 @@ class _NewResetPassword2State extends State<NewResetPassword2> {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
-          borderSide: BorderSide(
-            color: Color(AppColors.primaryColor),
-            width: 1,
-          ),
+          borderSide: BorderSide(color: AppColors.primaryColor, width: 1),
         ),
         fillColor: Colors.grey.shade50,
         filled: true,

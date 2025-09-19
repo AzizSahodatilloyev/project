@@ -68,7 +68,7 @@ class VendorsPage extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w700,
-                      color: Color(AppColors.primaryColor),
+                      color: AppColors.primaryColor,
                     ),
                   ),
                 ],
@@ -118,7 +118,7 @@ class VendorsPage extends StatelessWidget {
                 ),
                 itemBuilder: (context, index) {
                   final vendor = vendors[index];
-                  return Container(
+                  return SizedBox(
                     width: 101,
                     height: 153,
 
@@ -190,7 +190,7 @@ Widget _tabItem(String text, bool isActive) {
             margin: const EdgeInsets.only(top: 4),
             height: 2,
             width: 24,
-            color: Color(AppColors.primaryColor),
+            color: AppColors.primaryColor,
           ),
       ],
     ),

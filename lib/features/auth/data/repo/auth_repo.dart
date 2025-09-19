@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:project/core/api/api.dart';
 import 'package:project/core/services/error_handler.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthRepo {
   Future<String> signUp({
@@ -53,6 +54,7 @@ class AuthRepo {
     required String email,
     required String password,
   }) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     try {
       final response = await http.post(
         Uri.parse(Api.logIn),
@@ -64,9 +66,13 @@ class AuthRepo {
       );
       final data = jsonDecode(response.body);
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return data['msg'];
+        final token = data['access_token'] ?? data['token'] ?? '';
+        if (token.isEmpty) throw Exception("No token in response");
+        await prefs.setString('token', token);
+        return token;
+      } else {
+        throw parseDjangoError(data);
       }
-      throw parseDjangoError(data);
     } catch (e) {
       rethrow;
     }
@@ -107,7 +113,33 @@ class AuthRepo {
       );
       final data = jsonDecode(response.body);
       if (response.statusCode == 200 || response.statusCode == 201) {
-        return data['msg'];
+        return data['reset_token'];
+      }
+      throw parseDjangoError(data);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<String> newPassword({
+    required String resetToken,
+    required String newPassword,
+  }) async {
+    try {
+      final response = await http.post(
+        Uri.parse(Api.resetPassword),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: jsonEncode({
+          'resetToken': resetToken,
+          'newPassword': newPassword,
+        }),
+      );
+      final data = jsonDecode(response.body);
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return data['reset_token'];
       }
       throw parseDjangoError(data);
     } catch (e) {

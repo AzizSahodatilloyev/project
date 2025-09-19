@@ -25,7 +25,7 @@ class LoginEmailField extends StatelessWidget {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
           borderSide: BorderSide(
-            color: Color(AppColors.primaryColor),
+            color: AppColors.primaryColor,
             width: 1,
           ),
         ),
@@ -80,7 +80,7 @@ class _LoginPasswordFieldState extends State<LoginPasswordField> {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(8)),
           borderSide: BorderSide(
-            color: Color(AppColors.primaryColor),
+            color: AppColors.primaryColor,
             width: 1,
           ),
         ),

@@ -152,7 +152,7 @@ class _VerificationPageState extends State<VerificationPage> {
                           Container(
                             width: 2,
                             height: 25,
-                            color: Color(AppColors.primaryColor),
+                            color: AppColors.primaryColor,
                           ),
                         ],
                       ),
@@ -183,7 +183,7 @@ class _VerificationPageState extends State<VerificationPage> {
                           color: Colors.grey.shade50,
                           borderRadius: BorderRadius.all(Radius.circular(8)),
                           border: Border.all(
-                            color: Color(AppColors.primaryColor),
+                            color: AppColors.primaryColor,
                             width: 1,
                           ),
                         ),
@@ -207,7 +207,7 @@ class _VerificationPageState extends State<VerificationPage> {
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w600,
-                          color: Color(AppColors.primaryColor),
+                          color: AppColors.primaryColor,
                           decoration: TextDecoration.underline,
                         ),
                         recognizer: TapGestureRecognizer()..onTap = () {},
@@ -224,7 +224,7 @@ class _VerificationPageState extends State<VerificationPage> {
 
           Expanded(
             child: Container(
-              color: Color(AppColors.primaryColor),
+              color: AppColors.primaryColor,
               child: CustomKeyboard(
                 onKeyTap: _onKeyTap,
                 onBackspace: _onBackspace,

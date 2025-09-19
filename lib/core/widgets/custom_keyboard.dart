@@ -13,7 +13,7 @@ class CustomKeyboard extends StatelessWidget {
     super.key,
     required this.onKeyTap,
     required this.onBackspace,
-    this.backgroundColor = const Color(AppColors.primaryColor),
+    this.backgroundColor = AppColors.primaryColor,
     this.numColor = Colors.white,
   });
 

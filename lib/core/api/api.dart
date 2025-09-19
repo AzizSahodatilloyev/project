@@ -13,4 +13,16 @@ class Api {
   static const String verifyPasswordResetOtp =
       "$baseUrl/auth/verify-password-reset-otp";
   static const String resetPassword = "$baseUrl/auth/reset-password";
+  static const String books = "$baseUrl/books";
+  static const String categoryBooks = "$baseUrl/category/{category}";
+
+
+  // HEADERS
+  static const Map<String, String> getHeaders = {
+    'Content-Type': 'application/json',
+  };
+  static const Map<String, String> postHeaders = {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  };
 }

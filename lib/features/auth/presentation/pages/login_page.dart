@@ -12,6 +12,7 @@ import 'package:project/features/auth/presentation/pages/forgot_password_page.da
 import 'package:project/features/auth/presentation/pages/signup_page.dart';
 import 'package:project/features/auth/presentation/widgets/login_formfields.dart';
 import 'package:project/features/auth/presentation/widgets/login_through.dart';
+import 'package:project/features/home/presentation/cubit/home_cubit.dart';
 import 'package:project/main_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -148,14 +149,17 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ForgotPasswordPage(),
+                          builder: (context) => BlocProvider(
+                            create: (context) => AuthCubit(),
+                            child: ForgotPasswordPage(),
+                          ),
                         ),
                       );
                     },
                     child: Text(
                       'Forgot Password?',
                       style: TextStyle(
-                        color: Color(AppColors.primaryColor),
+                        color: AppColors.primaryColor,
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
                       ),
@@ -172,7 +176,12 @@ class _LoginPageState extends State<LoginPage> {
                       if (state is AuthSuccess) {
                         Navigator.pushAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (_) => MainPage()),
+                          MaterialPageRoute(
+                            builder: (_) => BlocProvider(
+                              create: (context) => HomeCubit(),
+                              child: const MainPage(),
+                            ),
+                          ),
                           (_) => false,
                         );
                       }
@@ -209,7 +218,7 @@ class _LoginPageState extends State<LoginPage> {
                             TextSpan(
                               text: 'Sign Up',
                               style: TextStyle(
-                                color: Color(AppColors.primaryColor),
+                                color: AppColors.primaryColor,
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
                                 decoration: TextDecoration.underline,
@@ -219,7 +228,10 @@ class _LoginPageState extends State<LoginPage> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => SignupPage(),
+                                      builder: (context) => BlocProvider(
+                                        create: (context) => AuthCubit(),
+                                        child: SignupPage(),
+                                      ),
                                     ),
                                   );
                                 },

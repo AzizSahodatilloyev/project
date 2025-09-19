@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:project/core/assets/app_icons.dart';
 import 'package:project/core/theme/app_colors.dart';
 import 'package:project/core/widgets/app_buttons.dart';
+import 'package:project/features/auth/cubit/auth_cubit.dart';
 import 'package:project/features/auth/presentation/pages/reset_password_page.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
@@ -74,7 +76,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           AppIcons.emailBulk,
                           width: 48,
                           height: 48,
-                          color: Color(AppColors.primaryColor),
+                          color: AppColors.primaryColor,
                         ),
                         Text.rich(
                           TextSpan(
@@ -118,7 +120,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           AppIcons.phoneFill,
                           width: 48,
                           height: 48,
-                          color: Color(AppColors.primaryColor),
+                          color: AppColors.primaryColor,
                         ),
                         Text.rich(
                           TextSpan(
@@ -151,7 +153,12 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ResetPasswordPage()),
+                  MaterialPageRoute(
+                    builder: (context) => BlocProvider(
+                      create: (context) => AuthCubit(),
+                      child: ResetPasswordPage(),
+                    ),
+                  ),
                 );
               },
               title: 'Continue',

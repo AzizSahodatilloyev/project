@@ -164,7 +164,7 @@ class AuthorsPage extends StatelessWidget {
                     Text(
                       product["price"]!,
                       style: const TextStyle(
-                        color: Color(AppColors.primaryColor),
+                        color: AppColors.primaryColor,
                         fontSize: 14,
                         fontWeight: FontWeight.w700,
                       ),

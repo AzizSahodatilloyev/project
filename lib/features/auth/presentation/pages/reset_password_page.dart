@@ -42,8 +42,10 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) =>
-                    ResetVerificationPage(verifiedEmail: _emailController),
+                builder: (context) => BlocProvider(
+                  create: (context) => AuthCubit(),
+                  child: ResetVerificationPage(verifiedEmail: _emailController),
+                ),
               ),
             );
           }

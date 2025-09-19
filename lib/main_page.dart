@@ -19,7 +19,7 @@ class _HomePageState extends State<MainPage> {
     HomePage(),
     CategoryPage(),
     CartPage(),
-    ProfilePage(),
+    ProfilPage(),
   ];
   int currentIndex = 0;
 
@@ -41,7 +41,7 @@ class _HomePageState extends State<MainPage> {
         selectedLabelStyle: TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w500,
-          color: Color(AppColors.primaryColor),
+          color: AppColors.primaryColor,
         ),
         unselectedLabelStyle: TextStyle(
           fontSize: 12,
@@ -54,7 +54,7 @@ class _HomePageState extends State<MainPage> {
             icon: SvgPicture.asset(
               AppIcons.homeFill,
               color: currentIndex == 0
-                  ? Color(AppColors.primaryColor)
+                  ? AppColors.primaryColor
                   : Colors.grey.shade500,
             ),
             label: "Home",
@@ -63,7 +63,7 @@ class _HomePageState extends State<MainPage> {
             icon: SvgPicture.asset(
               AppIcons.menuFill,
               color: currentIndex == 1
-                  ? Color(AppColors.primaryColor)
+                  ? AppColors.primaryColor
                   : Colors.grey.shade500,
             ),
             label: "Category",
@@ -72,7 +72,7 @@ class _HomePageState extends State<MainPage> {
             icon: SvgPicture.asset(
               AppIcons.cartFill,
               color: currentIndex == 2
-                  ? Color(AppColors.primaryColor)
+                  ? AppColors.primaryColor
                   : Colors.grey.shade500,
             ),
             label: "Cart",
@@ -81,7 +81,7 @@ class _HomePageState extends State<MainPage> {
             icon: SvgPicture.asset(
               AppIcons.profileFill,
               color: currentIndex == 3
-                  ? Color(AppColors.primaryColor)
+                  ? AppColors.primaryColor
                   : Colors.grey.shade500,
             ),
             label: "Profile",
